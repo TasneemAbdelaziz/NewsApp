@@ -1,0 +1,17 @@
+{
+  "news_app": "الاخبار",
+  "pick_category": "" ,
+  "sports": "الرياضة",
+  "entertainment": "ترفيه",
+  "health":"الصحة",
+  "business": "الاعمال",
+  "technology": "التكنولوجيا",
+  "science": "العلوم",
+  "general": "متنوع",
+  "search": "ابحث عن ",
+  "categories": "الانواع",
+  "settings": "الاعدادات",
+  "language": "اللغة",
+  "english": "الانجليزية",
+  "arabic": "العربية"
+}
