@@ -4,7 +4,7 @@ import 'package:news/Model/sourceRespond.dart';
 import 'package:news/Theming/my-theme.dart';
 
 class tabItem extends StatelessWidget{
-  bool isSelected = false;
+  bool isSelected;
   Source source ;
 
   tabItem({required this.isSelected,required this.source });

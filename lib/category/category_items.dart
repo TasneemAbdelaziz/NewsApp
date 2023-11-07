@@ -19,7 +19,6 @@ class categoryItems extends StatefulWidget {
 class _categoryItemsState extends State<categoryItems> {
   late List<categoryItemsModel> s;
 
-
   final seachTextController = TextEditingController();
 
   late List<categoryItemsModel> categoriesList;

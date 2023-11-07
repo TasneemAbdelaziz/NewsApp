@@ -17,6 +17,7 @@ class NewsViewModel extends ChangeNotifier{
         errorMessage = response?.message;
       }else{
         newsList = response?.articles;
+        print("***********${sourceId}********");
       }
 
     }

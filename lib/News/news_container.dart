@@ -23,49 +23,52 @@ class newsContainer extends StatefulWidget {
 }
 
 class _newsContainerState extends State<newsContainer> {
-  final controller = ScrollController();
-  final _scrollController = ScrollController();
-  int _currentPage = 1;
+  // final controller = ScrollController();
+  // final _scrollController = ScrollController();
+  // int _currentPage = 1;
 
-  @override
-  void initState() {
-    super.initState();
-    widget.newsViewModel.getNews(widget.source.id);
-    _scrollController.addListener(_loadMore);
-    _fetchData(_currentPage, widget.source.id!);
+  // @override
+  // void initState() {
+  //   super.initState();
+  //
+  // }
 
-  }
-
-  Future<void> _fetchData(int pageKey, String id) async {
-    Uri url = Uri.https(apiConstants.baseUrl, apiConstants.api, {
-      "apiKey": "449fd89e1e904d3e99e0b7aed9724d97",
-      "category": id,
-      "page": pageKey.toString()
-    });
-    var response = await http.get(url);
-    if (response.statusCode == 200) {
-
-        widget.newsViewModel.newsList!.addAll(List<News>.from(json.decode(response.body)));
-    } else {
-      throw Exception('Failed to load data');
-    }
-  }
-
-  void _loadMore() {
-    if (_scrollController.position.pixels ==
-        _scrollController.position.maxScrollExtent) {
-      _currentPage++;
-      _fetchData(_currentPage, widget.source.id!);
-    }
-  }
-
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
+  // Future<void> _fetchData(int pageKey, String id) async {
+  //   Uri url = Uri.https(apiConstants.baseUrl, apiConstants.api, {
+  //     "apiKey": "449fd89e1e904d3e99e0b7aed9724d97",
+  //     "category": id,
+  //     "page": pageKey.toString()
+  //   });
+  //   var response = await http.get(url);
+  //   if (response.statusCode == 200) {
+  //
+  //       widget.newsViewModel.newsList!.addAll(List<News>.from(json.decode(response.body)));
+  //   } else {
+  //     throw Exception('Failed to load data');
+  //   }
+  // }
+  //
+  // void _loadMore() {
+  //   if (_scrollController.position.pixels ==
+  //       _scrollController.position.maxScrollExtent) {
+  //     _currentPage++;
+  //     _fetchData(_currentPage, widget.source.id!);
+  //   }
+  // }
+  //
+  // void dispose() {
+  //   _scrollController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
+    // print("----------------------");
+    // print(widget.source.id);
+    // print("----------------------");
+
+    widget.newsViewModel.getNews(widget.source.id);
+
     return ChangeNotifierProvider(
       create: (context) => widget.newsViewModel,
       child: Consumer<NewsViewModel>(builder: (context, newsViewModel, child) {
@@ -92,9 +95,13 @@ class _newsContainerState extends State<newsContainer> {
         } else {
           return Expanded(
             child: ListView.builder(
-              controller: controller,
+              // controller: controller,
               itemBuilder: (context, index) {
-                final item =newsViewModel.newsList![index];
+                print(index);
+                var item =newsViewModel.newsList![index];
+                // print("--------------------------------");
+                // print(item.source?.name);
+                // print("--------------------------------");
                 return newsItem(news: item);
               },
               itemCount:newsViewModel.newsList!.length,

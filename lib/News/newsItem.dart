@@ -23,6 +23,7 @@ class newsItem extends StatelessWidget {
           "content": news.content,
           "url": news.url
         });
+
       },
       child: Container(
         padding: EdgeInsets.all(15),

@@ -35,9 +35,8 @@ class _categoryDetailsState extends State<categoryDetails> {
   @override
   Widget build(BuildContext context) {
     return
-      Scaffold(
-        body:
-
+      // Scaffold(
+      //   body:
         // FutureBuilder<SourceRespond?>(
         //   future: apiManager.getSource(widget.categoryItemsModel1.id),
         //   builder:(_,snapshot){
@@ -99,7 +98,10 @@ class _categoryDetailsState extends State<categoryDetails> {
                               foregroundColor: Colors.white, // foreground (text) color
                             ),
                             onPressed: () {
-                              widget.categoryViewModel.getSources(widget.categoryItemsModel1.id);
+                              // widget.categoryViewModel.getSources(widget.categoryItemsModel1.id);
+                              categoryViewModel.getSources(widget.categoryItemsModel1.id);
+
+
                             },
                             child: Text("Try Again"))
                       ],
@@ -111,10 +113,13 @@ class _categoryDetailsState extends State<categoryDetails> {
                         color: myTheme.primaryLight,
                       ));
                 } else {
-                  return tabContainer(sourceList: widget.categoryViewModel.sourceList ??[]);
+                  // print("********************************");
+                  // print(categoryViewModel.sourceList.);
+                  // print("**********************************");
+                  return tabContainer(sourceList: categoryViewModel.sourceList!);
                 }
               }),
-        ),
+        // ),
 
       );
   }

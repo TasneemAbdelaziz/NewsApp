@@ -8,7 +8,7 @@ class apiManager {
   static Future<SourceRespond?> getSource(String categoryId) async {
     // https://newsapi.org/v2/top-headlines/sources?apiKey=449fd89e1e904d3e99e0b7aed9724d97
     Uri url = Uri.https(apiConstants.baseUrl, apiConstants.api,
-        {"apiKey": "449fd89e1e904d3e99e0b7aed9724d97",
+        {"apiKey": "46d659bda4d546a1881d231e0f16d1a7",
           "category":categoryId,
         });
 
@@ -27,7 +27,7 @@ class apiManager {
       ) async {
     // https://newsapi.org/v2/everything?q=apple&from=2023-10-21&to=2023-10-21&sortBy=popularity&apiKe
     Uri url = Uri.https(apiConstants.baseUrl, apiConstants.newsApi, {
-      "apiKey": "449fd89e1e904d3e99e0b7aed9724d97",
+      "apiKey": "46d659bda4d546a1881d231e0f16d1a7",
       'sources': sourceId,
       "q":q
     });
