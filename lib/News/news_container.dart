@@ -13,7 +13,6 @@ import 'package:provider/provider.dart';
 
 class newsContainer extends StatefulWidget {
   Source source;
-  NewsViewModel newsViewModel = NewsViewModel();
 
   newsContainer({required this.source});
 
@@ -23,6 +22,8 @@ class newsContainer extends StatefulWidget {
 }
 
 class _newsContainerState extends State<newsContainer> {
+  NewsViewModel newsViewModel = NewsViewModel();
+
   // final controller = ScrollController();
   // final _scrollController = ScrollController();
   // int _currentPage = 1;
@@ -61,16 +62,16 @@ class _newsContainerState extends State<newsContainer> {
   //   super.dispose();
   // }
 
+
   @override
   Widget build(BuildContext context) {
+    newsViewModel.getNews(widget.source.id);
     // print("----------------------");
     // print(widget.source.id);
     // print("----------------------");
 
-    widget.newsViewModel.getNews(widget.source.id);
-
     return ChangeNotifierProvider(
-      create: (context) => widget.newsViewModel,
+      create: (context) => newsViewModel,
       child: Consumer<NewsViewModel>(builder: (context, newsViewModel, child) {
         if (newsViewModel.errorMessage != null) {
           return Center(
