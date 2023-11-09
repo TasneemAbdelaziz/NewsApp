@@ -10,6 +10,8 @@ class apiManager {
     Uri url = Uri.https(apiConstants.baseUrl, apiConstants.api,
         {"apiKey": "46d659bda4d546a1881d231e0f16d1a7",
           "category":categoryId,
+          // "language":'ar'
+
         });
 
     try {
@@ -23,13 +25,16 @@ class apiManager {
   }
 
   static Future<NewsResponse?> getNewsBySourceId(
-      {String? sourceId, String? q}
+      {String? sourceId, String? q,int? page}
       ) async {
     // https://newsapi.org/v2/everything?q=apple&from=2023-10-21&to=2023-10-21&sortBy=popularity&apiKe
     Uri url = Uri.https(apiConstants.baseUrl, apiConstants.newsApi, {
       "apiKey": "46d659bda4d546a1881d231e0f16d1a7",
       'sources': sourceId,
-      "q":q
+      "q":q,
+      "pageSize":'20',
+      "page":'${page}',
+      // "language": 'ar'
     });
     try {
       var response = await http.get(url);

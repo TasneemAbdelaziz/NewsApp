@@ -8,16 +8,16 @@ class NewsViewModel extends ChangeNotifier{
   String? errorMessage;
 
   void getNews(String? sourceId)async{
-    newsList = null;
-    errorMessage=null;
-    notifyListeners();
+    // newsList = null;
+    // errorMessage=null;
+    // notifyListeners();
     try{
-      var response = await apiManager.getNewsBySourceId(sourceId: sourceId);
+      var response = await apiManager.getNewsBySourceId(sourceId: sourceId,);
       if(response?.status != 'ok'){
         errorMessage = response?.message;
       }else{
         newsList = response?.articles;
-        print("***********${sourceId}********");
+        // print("***********${sourceId}********");
       }
 
     }
